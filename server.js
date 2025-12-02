@@ -6,7 +6,7 @@ const app = express();
 const admin = require('./routes/admin');
 const shop = require('./routes/shop');
 
-app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
 app.set('views', 'views'); //tell express where to look for the view template file;
 
 app.use(bodyParser.urlencoded({extended: false}));
