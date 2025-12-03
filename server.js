@@ -12,7 +12,7 @@ app.set('views', 'views'); //tell express where to look for the view template fi
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/admin',admin.routes);
+app.use('/admin',admin);
 app.use(shop);
 
 app.use((req, res, next) => {
