@@ -1,15 +1,19 @@
 const path = require('path');
 const express = require('express');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const db = require('.//util/database');
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/Product')
-.then(() => console.log('Mongoose connected'))
-.catch(err => console.log(err))
+// mongoose.connect('mongodb://localhost:27017/Product')
+// .then(() => console.log('Mongoose connected'))
+// .catch(err => console.log(err))
 
 const admin = require('./routes/admin');
 const shop = require('./routes/shop');
+
+db.execute('SELECT * FROM products')
+.then(result => console.log(result[0], result[1]))
+.catch(err => console.log(err))
 
 const errorControllers = require('./controllers/error');
 
