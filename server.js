@@ -1,7 +1,12 @@
 const path = require('path');
 const express = require('express');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const app = express();
+
+mongoose.connect('mongodb://localhost:27017/Product')
+.then(() => console.log('Mongoose connected'))
+.catch(err => console.log(err))
 
 const admin = require('./routes/admin');
 const shop = require('./routes/shop');
